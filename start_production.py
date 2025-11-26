@@ -53,7 +53,7 @@ def start_production_servers():
     print("🔧 Starting FastAPI Server (Production Mode)...")
     api_process = subprocess.Popen([
         sys.executable, '-m', 'uvicorn', 'run_phase8_optimized:app',
-        '--host', '0.0.0.0', '--port', '8000'
+        '--host', '0.0.0.0', '--port', '8001'
     ])
     
     # Wait for API to start
@@ -62,7 +62,7 @@ def start_production_servers():
     
     # Verify API is running
     try:
-        response = requests.get("http://localhost:8000/health", timeout=10)
+        response = requests.get("http://localhost:8001/health", timeout=10)
         if response.status_code == 200:
             print("✅ FastAPI Server is running")
         else:
@@ -79,7 +79,7 @@ def start_production_servers():
     ])
     
     print("\n✅ PRODUCTION SERVERS STARTED!")
-    print("🌐 FastAPI: http://localhost:8000")
+    print("🌐 FastAPI: http://localhost:8001")
     print("📊 Dashboard: http://localhost:8501")
     print("📚 API Docs: http://localhost:8000/docs")
     print("\n🎯 TROUBLESHOOTING: If predictions show 'NO', try:")
